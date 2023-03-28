@@ -1,0 +1,13 @@
+POC:
+Go to the TrendMicro Apex Central web login and log in.
+Wait for the Google Authenticator verification code.
+
+Access the "Google Authenticator" application and write down the verification code.
+
+The vulnerability is that even if the time marked by Google Authenticator passes for the code to be valid, you can enter the previously noted code, even if the application time has expired and it is changed to another number.
+
+
+Summary:
+If we have TrendMicro Apex Central with Google Authenticator MFA, the Google Authenticator code is valid up to 3 more code changes (I haven't tested more than 3 changes, and it will most likely allow more).
+
+This implies that the MFA is not well implemented and allows brute force attacks on the MFA with more time than Google Authenticator allows, since the code, despite expiring, is still valid.
